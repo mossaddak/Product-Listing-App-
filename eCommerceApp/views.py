@@ -81,12 +81,15 @@ def UpdateProduct(request,pk):
     product = Products.objects.get(pk=pk)
     form = UpdateProductForm(request.POST or None, instance=product)
     
-    if request.method == 'POST' and form.is_valid() and product.user==request.user:
-        form = UpdateProductForm(request.POST, request.FILES, instance=product)
-        form.save()
-        print(form.errors)
-        messages.success(request,"Successfully product information updated.")
-        return redirect("MyProducts")
+    if form.is_valid() and request.method == 'POST':
+        if product.user==request.user or request.user.is_superuser:
+            form = UpdateProductForm(request.POST, request.FILES, instance=product)
+            
+            form.save()
+            print(form.errors)
+            messages.success(request,"Successfully product information updated.")
+            # return redirect("MyProducts")
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER')) 
 
     context = {
         'product':product,
