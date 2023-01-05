@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Products{% endblock %}
+
+{% block content %}
+<section class="py-5 justify-content-center">
+    <div class="container py-5 px-5">
+        <div class="p-5 row justify-content-center product_details">
+
+            <div class="product_details_left d-flex justify-content-center col-9 col-md-9 col-lg-5">
+                <img class="d-block product_details_img" src="{{productDetails.image.url}}" alt="details product image">
+            </div>
+
+            <div class="product_details_right col-11 col-md-11 col-lg-7 py-4">
+                <div class="d-flex">
+                    <h4 class="me-auto">{{productDetails.title}}</h4>
+                    <p class="ms-auto d-block">ID: {{productDetails.pk}}</p>
+                </div>
+                <p>Price: {{productDetails.price}} tk</p>
+                <p>{{productDetails.description}}</p>
+                <p>
+                    QTY: <input class="form-control w-50" type="number">
+                </p>
+
+                <!-- buttons -->
+                <div class="">
+                    <button class="btn btn-primary">Buy Bow</button>
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

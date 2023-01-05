@@ -1,0 +1,23 @@
+.profile_left{
+    position: relative;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.profile_image{
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.profile_image img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+.profile_heading{
+    line-height: 0.5;
+}
+
+.profile_right{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
